@@ -15,13 +15,6 @@
       placeholder="Password" required="">
   </div>
 
-  <div class="form-group">
-    <label for="favouriteValue">What is your position?</label>
-    <select class="form-control" id="favouriteValue">
-      <option *ngFor="let value of valuesFromHome" [value]="value">{{value.name}}</option>
-    </select>
-  </div>
-
   <div class="checkbox mb-3">
     <label>
       <input type="checkbox" value="remember-me"> Remember me

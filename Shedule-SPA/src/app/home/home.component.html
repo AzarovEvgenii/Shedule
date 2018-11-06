@@ -1,0 +1,21 @@
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+  <main *ngIf="!registerMode" role="main" class="inner cover text-center">
+    <h1>Cover your page.</h1>
+    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text,
+      and add your own fullscreen background photo to make it your own.</p>
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg mr-2" (click)="registerToggle()">Register</button>
+      <button class="btn btn-info btn-lg">Learn moore</button>
+    </div>
+  </main>
+
+  <div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register (cancelRegister)="cancelRegisterMode()">
+        </app-register>/*launch canceRegisterMode() with parameter from cancelRegisterMode.emit(param)*/
+      </div>
+    </div>
+  </div>
+</div>

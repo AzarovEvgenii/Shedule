@@ -8,6 +8,8 @@ import { HttpClient } from 'selenium-webdriver/http';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthService } from './_servises/Auth.service';
+import { ErrorInterceptorProvider } from './_servises/error.interceptor';
 
 @NgModule({
    declarations: [
@@ -21,7 +23,10 @@ import { RegisterComponent } from './register/register.component';
       HttpClientModule,
       FormsModule
    ],
-   providers: [],
+   providers: [
+       AuthService,
+       ErrorInterceptorProvider
+   ],
    bootstrap: [
       AppComponent
    ]

@@ -11,5 +11,7 @@ namespace Shedule.API.Data
          Task<bool> SaveAll();
          Task<IEnumerable<User>> GetUsers();
          Task<User> GetUser(int id);
+         Task<Photo> GetMainPhotoForUser(int userId);
+         Task<Photo> GetPhoto(int id);
     }
 }

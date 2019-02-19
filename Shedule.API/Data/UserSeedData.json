@@ -1,6 +1,6 @@
 [
   {
-    "Username": "Rosa",
+    "Username": "Яма",
     "Gender": "female",
     "DateOfBirth": "1979-03-07",
     "Password": "password",
@@ -11,14 +11,14 @@
     "Country": "Uganda",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/women/55.jpg",
+        "url": "https://www.avtovzglyad.ru/media/article/5_kb7tUar.jpg.740x555_q85_box-91%2C0%2C1513%2C1067_crop_detail_upscale.jpg",
         "isMain": true,
-        "description": "Qui Lorem exercitation duis nostrud ipsum do ad officia exercitation sit laborum nulla do."
+        "description": "Огромная яма на дороге не дает людям жизни."
       }
     ]
   },
   {
-    "Username": "Becky",
+    "Username": "Кочка",
     "Gender": "female",
     "DateOfBirth": "1968-08-01",
     "Password": "password",
@@ -29,14 +29,14 @@
     "Country": "Oman",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/women/88.jpg",
+        "url": "http://pravdapskov.ru/upload/files/2012-11-13_15-55-20.jpg",
         "isMain": true,
-        "description": "Sunt dolore magna excepteur voluptate qui."
+        "description": "Кочка мешает проезду."
       }
     ]
   },
   {
-    "Username": "Mari",
+    "Username": "Лужа",
     "Gender": "female",
     "DateOfBirth": "1967-11-06",
     "Password": "password",
@@ -47,14 +47,14 @@
     "Country": "Malta",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/women/74.jpg",
+        "url": "https://citifox.ru/wp-content/uploads/2016/12/5059.jpg",
         "isMain": true,
-        "description": "Sunt culpa in aliqua cupidatat esse deserunt duis."
+        "description": "Лужа мешает во дворе."
       }
     ]
   },
   {
-    "Username": "Raquel",
+    "Username": "Мусорка",
     "Gender": "female",
     "DateOfBirth": "1976-06-25",
     "Password": "password",
@@ -65,14 +65,14 @@
     "Country": "Gibraltar",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/women/43.jpg",
+        "url": "http://news.sarbc.ru/images/orig/2018/04/img_rZKx5E.jpg",
         "isMain": true,
-        "description": "Enim sit ut cupidatat et cillum."
+        "description": "Мусорка перегородила проезд."
       }
     ]
   },
   {
-    "Username": "Dolly",
+    "Username": "Грязь",
     "Gender": "female",
     "DateOfBirth": "1959-10-05",
     "Password": "password",
@@ -83,14 +83,14 @@
     "Country": "Anguilla",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/women/68.jpg",
+        "url": "http://inter-13.ru/wp-content/uploads/2018/04/1d8358b22e79d9ea0d460f4f617c5dc4.jpg",
         "isMain": true,
-        "description": "Irure officia eu id velit dolor."
+        "description": "Грязи многовато."
       }
     ]
   },
   {
-    "Username": "Gregory",
+    "Username": "Тучи",
     "Gender": "male",
     "DateOfBirth": "1963-07-14",
     "Password": "password",
@@ -101,14 +101,14 @@
     "Country": "France, Metropolitan",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/50.jpg",
+        "url": "https://cs8.pikabu.ru/post_img/big/2017/06/28/11/1498679452157184818.jpg",
         "isMain": true,
-        "description": "Exercitation sit voluptate velit aliquip cillum fugiat aute do nostrud anim tempor et esse."
+        "description": "Тучи уж больно хмурые."
       }
     ]
   },
   {
-    "Username": "Townsend",
+    "Username": "Мусор2",
     "Gender": "male",
     "DateOfBirth": "1995-02-01",
     "Password": "password",
@@ -119,14 +119,14 @@
     "Country": "Chile",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/87.jpg",
+        "url": "http://e-zdravnitsa.ru/uploads/images-news/2017/4/05-musor-1.jpg",
         "isMain": true,
-        "description": "Quis nostrud laborum duis id deserunt cillum ullamco nulla."
+        "description": "Чересчур много мусора."
       }
     ]
   },
   {
-    "Username": "Wilder",
+    "Username": "Кочка2",
     "Gender": "male",
     "DateOfBirth": "1969-08-08",
     "Password": "password",
@@ -137,14 +137,14 @@
     "Country": "Lithuania",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/16.jpg",
+        "url": "http://www.privetsochi.ru/uploads/images/00/54/57/2013/03/31/b77c6b.jpg",
         "isMain": true,
-        "description": "Veniam ipsum sunt laboris ea sit esse laboris ipsum."
+        "description": "Большая кочка."
       }
     ]
   },
   {
-    "Username": "Bird",
+    "Username": "Колдобина3",
     "Gender": "male",
     "DateOfBirth": "1970-06-07",
     "Password": "password",
@@ -155,14 +155,14 @@
     "Country": "Cote D'Ivoire (Ivory Coast)",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/59.jpg",
+        "url": "http://www.trud.ru/userfiles/gallery/23/b_23acae190ef52e1464db2c601ba9a69b.jpg",
         "isMain": true,
-        "description": "Anim ut irure ut reprehenderit dolore fugiat."
+        "description": "Среднего размера яма."
       }
     ]
   },
   {
-    "Username": "Shepard",
+    "Username": "трещина",
     "Gender": "male",
     "DateOfBirth": "1994-03-28",
     "Password": "password",
@@ -173,9 +173,9 @@
     "Country": "Grenada",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/14.jpg",
+        "url": "https://cs8.pikabu.ru/post_img/big/2016/04/04/7/1459766718165625423.jpg",
         "isMain": true,
-        "description": "Id eu anim duis in ut id proident consectetur labore culpa aliquip voluptate adipisicing pariatur."
+        "description": "Маленькая трещина мешает проходу."
       }
     ]
   }

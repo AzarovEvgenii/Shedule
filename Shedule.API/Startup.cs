@@ -87,8 +87,9 @@ namespace Shedule.API
                 //app.UseHsts();
             }
 
-            // app.UseHttpsRedirection();
-            // seeder.SeedUsers();
+            //  app.UseHttpsRedirection();
+            //  seeder.SeedUsers();
+            // seeder.SeedProblems();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             app.UseMvc();

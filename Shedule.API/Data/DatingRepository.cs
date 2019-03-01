@@ -46,9 +46,16 @@ namespace Shedule.API.Data
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-           var users = await _context.Users.Include(p => p.Photos).ToListAsync();
+            var users = await _context.Users.Include(p => p.Photos).Include(p => p.Problems).ToListAsync();
 
-           return users;
+            return users;
+        }
+
+        public async Task<IEnumerable<Problem>> GetProblems()
+        {
+            var problems = await _context.Problems.Include(p => p.Photos).ToListAsync();
+
+            return problems;
         }
 
         public async Task<bool> SaveAll()

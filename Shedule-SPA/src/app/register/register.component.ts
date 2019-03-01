@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   @Output()
   user: User;
-  cancelRegister = new EventEmitter();
+  @Output() cancelRegister = new EventEmitter();
   model: any = {};
   registerForm: FormGroup;
   bsConfig: Partial<BsDatepickerConfig>;

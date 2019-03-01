@@ -40,6 +40,54 @@ namespace Shedule.API.Migrations
                     b.ToTable("Photos");
                 });
 
+            modelBuilder.Entity("Shedule.API.Models.Problem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Country");
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Type");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Problems");
+                });
+
+            modelBuilder.Entity("Shedule.API.Models.ProblemPhoto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<bool>("IsMain");
+
+                    b.Property<int>("ProblemId");
+
+                    b.Property<string>("PublicId");
+
+                    b.Property<DateTime>("TimeAdded");
+
+                    b.Property<string>("Url");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProblemId");
+
+                    b.ToTable("ProblemPhotos");
+                });
+
             modelBuilder.Entity("Shedule.API.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -87,6 +135,22 @@ namespace Shedule.API.Migrations
                     b.HasOne("Shedule.API.Models.User", "User")
                         .WithMany("Photos")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Shedule.API.Models.Problem", b =>
+                {
+                    b.HasOne("Shedule.API.Models.User", "User")
+                        .WithMany("Problems")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Shedule.API.Models.ProblemPhoto", b =>
+                {
+                    b.HasOne("Shedule.API.Models.Problem", "Problem")
+                        .WithMany("Photos")
+                        .HasForeignKey("ProblemId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

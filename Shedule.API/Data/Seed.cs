@@ -31,6 +31,18 @@ namespace Shedule.API.Data
             _context.SaveChanges();
         }
 
+        public void SeedProblems(){
+            var problemData = System.IO.File.ReadAllText("Data/ProblemSeedData.json");
+            var problems = JsonConvert.DeserializeObject<List<Problem>>(problemData);
+            
+            foreach(var problem in problems)
+            {
+                _context.Problems.Add(problem);
+            }
+
+            _context.SaveChanges();
+        }
+
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA512())

@@ -1,182 +1,268 @@
 [
-  {
-    "Username": "Яма",
-    "Gender": "female",
-    "DateOfBirth": "1979-03-07",
-    "Password": "password",
-    "KnownAs": "Rosa",
-    "Created": "2017-02-10",
-    "LastActive": "2017-02-10",
-    "City": "Malott",
-    "Country": "Uganda",
-    "Photos": [
-      {
-        "url": "https://www.avtovzglyad.ru/media/article/5_kb7tUar.jpg.740x555_q85_box-91%2C0%2C1513%2C1067_crop_detail_upscale.jpg",
-        "isMain": true,
-        "description": "Огромная яма на дороге не дает людям жизни."
-      }
-    ]
-  },
-  {
-    "Username": "Кочка",
-    "Gender": "female",
-    "DateOfBirth": "1968-08-01",
-    "Password": "password",
-    "KnownAs": "Becky",
-    "Created": "2017-04-11",
-    "LastActive": "2017-04-11",
-    "City": "Cleary",
-    "Country": "Oman",
-    "Photos": [
-      {
-        "url": "http://pravdapskov.ru/upload/files/2012-11-13_15-55-20.jpg",
-        "isMain": true,
-        "description": "Кочка мешает проезду."
-      }
-    ]
-  },
-  {
-    "Username": "Лужа",
-    "Gender": "female",
-    "DateOfBirth": "1967-11-06",
-    "Password": "password",
-    "KnownAs": "Mari",
-    "Created": "2017-01-09",
-    "LastActive": "2017-01-09",
-    "City": "Loyalhanna",
-    "Country": "Malta",
-    "Photos": [
-      {
-        "url": "https://citifox.ru/wp-content/uploads/2016/12/5059.jpg",
-        "isMain": true,
-        "description": "Лужа мешает во дворе."
-      }
-    ]
-  },
-  {
-    "Username": "Мусорка",
-    "Gender": "female",
-    "DateOfBirth": "1976-06-25",
-    "Password": "password",
-    "KnownAs": "Raquel",
-    "Created": "2017-05-13",
-    "LastActive": "2017-05-13",
-    "City": "Umapine",
-    "Country": "Gibraltar",
-    "Photos": [
-      {
-        "url": "http://news.sarbc.ru/images/orig/2018/04/img_rZKx5E.jpg",
-        "isMain": true,
-        "description": "Мусорка перегородила проезд."
-      }
-    ]
-  },
-  {
-    "Username": "Грязь",
-    "Gender": "female",
-    "DateOfBirth": "1959-10-05",
-    "Password": "password",
-    "KnownAs": "Dolly",
-    "Created": "2017-08-09",
-    "LastActive": "2017-08-09",
-    "City": "Linwood",
-    "Country": "Anguilla",
-    "Photos": [
-      {
-        "url": "http://inter-13.ru/wp-content/uploads/2018/04/1d8358b22e79d9ea0d460f4f617c5dc4.jpg",
-        "isMain": true,
-        "description": "Грязи многовато."
-      }
-    ]
-  },
-  {
-    "Username": "Тучи",
-    "Gender": "male",
-    "DateOfBirth": "1963-07-14",
-    "Password": "password",
-    "KnownAs": "Gregory",
-    "Created": "2017-01-29",
-    "LastActive": "2017-01-29",
-    "City": "Wiscon",
-    "Country": "France, Metropolitan",
-    "Photos": [
-      {
-        "url": "https://cs8.pikabu.ru/post_img/big/2017/06/28/11/1498679452157184818.jpg",
-        "isMain": true,
-        "description": "Тучи уж больно хмурые."
-      }
-    ]
-  },
-  {
-    "Username": "Мусор2",
-    "Gender": "male",
-    "DateOfBirth": "1995-02-01",
-    "Password": "password",
-    "KnownAs": "Townsend",
-    "Created": "2017-06-13",
-    "LastActive": "2017-06-13",
-    "City": "Sunwest",
-    "Country": "Chile",
-    "Photos": [
-      {
-        "url": "http://e-zdravnitsa.ru/uploads/images-news/2017/4/05-musor-1.jpg",
-        "isMain": true,
-        "description": "Чересчур много мусора."
-      }
-    ]
-  },
-  {
-    "Username": "Кочка2",
-    "Gender": "male",
-    "DateOfBirth": "1969-08-08",
-    "Password": "password",
-    "KnownAs": "Wilder",
-    "Created": "2017-02-14",
-    "LastActive": "2017-02-14",
-    "City": "Tyhee",
-    "Country": "Lithuania",
-    "Photos": [
-      {
-        "url": "http://www.privetsochi.ru/uploads/images/00/54/57/2013/03/31/b77c6b.jpg",
-        "isMain": true,
-        "description": "Большая кочка."
-      }
-    ]
-  },
-  {
-    "Username": "Колдобина3",
-    "Gender": "male",
-    "DateOfBirth": "1970-06-07",
-    "Password": "password",
-    "KnownAs": "Bird",
-    "Created": "2017-06-17",
-    "LastActive": "2017-06-17",
-    "City": "Sugartown",
-    "Country": "Cote D'Ivoire (Ivory Coast)",
-    "Photos": [
-      {
-        "url": "http://www.trud.ru/userfiles/gallery/23/b_23acae190ef52e1464db2c601ba9a69b.jpg",
-        "isMain": true,
-        "description": "Среднего размера яма."
-      }
-    ]
-  },
-  {
-    "Username": "трещина",
-    "Gender": "male",
-    "DateOfBirth": "1994-03-28",
-    "Password": "password",
-    "KnownAs": "Shepard",
-    "Created": "2017-05-23",
-    "LastActive": "2017-05-23",
-    "City": "Ola",
-    "Country": "Grenada",
-    "Photos": [
-      {
-        "url": "https://cs8.pikabu.ru/post_img/big/2016/04/04/7/1459766718165625423.jpg",
-        "isMain": true,
-        "description": "Маленькая трещина мешает проходу."
-      }
-    ]
-  }
-]
+    {
+      "Username": "Lola",
+      "Gender": "female",
+      "DateOfBirth": "1994-02-21",
+      "Password": "password",
+      "KnownAs": "Lola",
+      "Created": "2017-08-02",
+      "LastActive": "2017-08-02",
+      "City": "Efland",
+      "Country": "Burundi",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/3.jpg",
+          "isMain": true,
+          "description": "Non deserunt labore sunt ex laboris et adipisicing ullamco officia minim."
+        }
+      ],
+      "Problems": [
+        {
+          "Type": "Яма",
+          "Description": "Большая яма на дороге мешает проезду.",
+          "Created": "2017-03-07",
+          "City": "Москва",
+          "Country": "Россия",
+          "MainPhotoUrl": "http://www.v-tagile.ru/media/k2/items/cache/b8d4c0aba43bd42167ec5c1aafff9528_XL.jpg",
+          "Photos": [
+            {
+              "url": "http://www.v-tagile.ru/media/k2/items/cache/b8d4c0aba43bd42167ec5c1aafff9528_XL.jpg",
+              "isMain": true,
+              "description": "Яма мешает моей семье жить."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Username": "Dorothy",
+      "Gender": "female",
+      "DateOfBirth": "1979-04-19",
+      "Password": "password",
+      "KnownAs": "Dorothy",
+      "Created": "2017-01-21",
+      "LastActive": "2017-01-21",
+      "City": "Deseret",
+      "Country": "Mongolia",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/49.jpg",
+          "isMain": true,
+          "description": "Elit culpa eu excepteur ut elit tempor nulla duis dolore."
+        }
+      ],
+      "Problems": [
+        {
+          "Type": "Яма на тротуаре",
+          "Description": "Большая яма на дороге мешает проезду.",
+          "Created": "2017-03-07",
+          "City": "Москва",
+          "Country": "Россия",
+          "MainPhotoUrl": "https://iurist.info/wp-content/uploads/2018/02/2336679497.jpg",
+          "Photos": [
+            {
+              "url": "https://iurist.info/wp-content/uploads/2018/02/2336679497.jpg",
+              "isMain": true,
+              "description": "Яма мешает тротуару моей семье жить."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Username": "Reba",
+      "Gender": "female",
+      "DateOfBirth": "1984-12-05",
+      "Password": "password",
+      "KnownAs": "Reba",
+      "Created": "2017-06-24",
+      "LastActive": "2017-06-24",
+      "City": "Hannasville",
+      "Country": "Poland",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/24.jpg",
+          "isMain": true,
+          "description": "Veniam dolore nisi magna laboris minim id pariatur officia."
+        }
+      ],
+      "Problems": [
+        {
+          "Type": "Яма на тротуаре большая",
+          "Description": "Большая яма на дороге мешает проезду.",
+          "Created": "2017-03-07",
+          "City": "Москва",
+          "Country": "Россия",
+          "MainPhotoUrl": "https://iurist.info/wp-content/uploads/2018/02/2336679497.jpg",
+          "Photos": [
+            {
+              "url": "https://ekburg.tv/uploads/57c3d1995333e6535215afce/1462435101_071111.jpg",
+              "isMain": true,
+              "description": "Яма мешает тротуару моей семье жить."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Username": "Annmarie",
+      "Gender": "female",
+      "DateOfBirth": "1970-02-25",
+      "Password": "password",
+      "KnownAs": "Annmarie",
+      "Created": "2017-07-17",
+      "LastActive": "2017-07-17",
+      "City": "Sutton",
+      "Country": "Bouvet Island",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/74.jpg",
+          "isMain": true,
+          "description": "Veniam velit amet tempor laboris reprehenderit deserunt quis do veniam."
+        }
+      ],
+      "Problems": [
+        {
+          
+        }
+      ]
+    },
+    {
+      "Username": "Ashley",
+      "Gender": "female",
+      "DateOfBirth": "1953-03-01",
+      "Password": "password",
+      "KnownAs": "Ashley",
+      "Created": "2017-03-25",
+      "LastActive": "2017-03-25",
+      "City": "Bayview",
+      "Country": "Zambia",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/33.jpg",
+          "isMain": true,
+          "description": "Ipsum enim cillum ad nisi consequat cillum ipsum ullamco tempor."
+        }
+      ],
+      "Problems": [
+        {
+          
+        }
+      ]
+    },
+    {
+      "Username": "Roy",
+      "Gender": "male",
+      "DateOfBirth": "1993-08-21",
+      "Password": "password",
+      "KnownAs": "Roy",
+      "Created": "2017-08-03",
+      "LastActive": "2017-08-03",
+      "City": "Davenport",
+      "Country": "Tuvalu",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/men/90.jpg",
+          "isMain": true,
+          "description": "Irure cupidatat magna aute et dolore aliquip reprehenderit dolor irure."
+        }
+      ],
+      "Problems": [
+        {
+          
+        }
+      ]
+    },
+    {
+      "Username": "Duke",
+      "Gender": "male",
+      "DateOfBirth": "1996-09-07",
+      "Password": "password",
+      "KnownAs": "Duke",
+      "Created": "2017-07-07",
+      "LastActive": "2017-07-07",
+      "City": "Inkerman",
+      "Country": "Canada",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/men/96.jpg",
+          "isMain": true,
+          "description": "Magna duis consectetur sit ut commodo non eiusmod."
+        }
+      ],
+      "Problems": [
+        {
+          
+        }
+      ]
+    },
+    {
+      "Username": "Lloyd",
+      "Gender": "male",
+      "DateOfBirth": "1957-03-07",
+      "Password": "password",
+      "KnownAs": "Lloyd",
+      "Created": "2017-08-22",
+      "LastActive": "2017-08-22",
+      "City": "Loma",
+      "Country": "Paraguay",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/men/4.jpg",
+          "isMain": true,
+          "description": "Cupidatat veniam ea magna cillum velit minim non minim tempor ipsum excepteur."
+        }
+      ],
+      "Problems": [
+        {
+          
+        }
+      ]
+    },
+    {
+      "Username": "Larsen",
+      "Gender": "male",
+      "DateOfBirth": "1969-08-15",
+      "Password": "password",
+      "KnownAs": "Larsen",
+      "Created": "2017-02-17",
+      "LastActive": "2017-02-17",
+      "City": "Bynum",
+      "Country": "Pakistan",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/men/76.jpg",
+          "isMain": true,
+          "description": "Amet officia enim pariatur mollit tempor in ut."
+        }
+      ],
+      "Problems": [
+        {
+          
+        }
+      ]
+    },
+    {
+      "Username": "Simon",
+      "Gender": "male",
+      "DateOfBirth": "1984-02-19",
+      "Password": "password",
+      "KnownAs": "Simon",
+      "Created": "2017-06-27",
+      "LastActive": "2017-06-27",
+      "City": "Cavalero",
+      "Country": "Viet Nam",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/men/14.jpg",
+          "isMain": true,
+          "description": "Nulla nisi tempor sint cillum aliqua esse aute."
+        }
+      ],
+      "Problems": [
+        {
+          
+        }
+      ]
+    }
+  ]

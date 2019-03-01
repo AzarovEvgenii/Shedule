@@ -23,11 +23,17 @@ namespace Shedule.API.Helpers
                 .ForMember(dest => dest.Age, opt => {
                     opt.ResolveUsing(d => d.DateOfBirth.CalculateAge());
                 });
+            CreateMap<Problem, ProblemForListDto>()
+            .ForMember(dest => dest.PhotoUrl, opt => {
+                opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url);
+            });    
             CreateMap<Photo, PhotosForDetailedDto>();
+            CreateMap<ProblemPhoto, ProblemPhotoForDetailed>();
             CreateMap<UserForUpdateDto, User>();
             CreateMap<Photo, PhotoForReturnDto>();
             CreateMap<PhotoForCreationDto, Photo>();
             CreateMap<UserForRegisterDto, User>();
+            
         }
     }
 }

@@ -9,5 +9,7 @@ namespace Shedule.API.Data
         public DbSet<Value> Values { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<Problem> Problems { get; set; }
+        public DbSet<ProblemPhoto> ProblemPhotos { get; set; }
     }
 }

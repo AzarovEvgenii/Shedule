@@ -1,14 +1,14 @@
 <form [formGroup]="registerForm" (ngSubmit)="register()">
-  <h2 class="text-center text-primary">Sign Up</h2>
+  <h2 class="text-center text-primary">Регистрация</h2>
   <hr>
 
   <div class="form-group">
-    <label class="control-label" style="margin-right:10px">I am a: </label>
+    <label class="control-label" style="margin-right:10px">Ваш пол: </label>
     <label class="radio-inline">
-      <input class="mr-3" type="radio" value="male" formControlName="gender">Male
+      <input class="mr-3" type="radio" value="male" formControlName="gender">Мужчина
     </label>
     <label class="radio-inline ml-3">
-      <input class="mr-3" type="radio" value="female" formControlName="gender">Female
+      <input class="mr-3" type="radio" value="female" formControlName="gender">Женщина
     </label>
   </div>
 
@@ -22,33 +22,33 @@
       }"
       class="form-control is-invalid"
       formControlName="username"
-      placeholder="Username"
+      placeholder="Имя пользователя"
     />
-    <div class="invalid-feedback">Please choose a username</div>
+    <div class="invalid-feedback">Пожалуйста, выбирите имя пользователя</div>
   </div>
 
   <div class="form-group">
     <input [ngClass]="{'is-invalid': registerForm.get('knownAs').errors && registerForm.get('knownAs').touched}" class="form-control"
-      placeholder="Known as" formControlName="knownAs">
-    <div class="invalid-feedback" *ngIf="registerForm.get('knownAs').touched && registerForm.get('knownAs').hasError('required')">Known as is required</div>
+      placeholder="Прозвище" formControlName="knownAs">
+    <div class="invalid-feedback" *ngIf="registerForm.get('knownAs').touched && registerForm.get('knownAs').hasError('required')">Требуется ввести прозвище</div>
   </div>
 
   <div class="form-group">
     <input [ngClass]="{'is-invalid': registerForm.get('dateOfBirth').errors && registerForm.get('dateOfBirth').touched}" class="form-control"
-      placeholder="Date of Birth" formControlName="dateOfBirth" type="text" bsDatepicker [bsConfig]="bsConfig" >
-    <div class="invalid-feedback" *ngIf="registerForm.get('dateOfBirth').touched && registerForm.get('dateOfBirth').hasError('required')">Date of Birth is required</div>
+      placeholder="Дата рождения" formControlName="dateOfBirth" type="text" bsDatepicker [bsConfig]="bsConfig" >
+    <div class="invalid-feedback" *ngIf="registerForm.get('dateOfBirth').touched && registerForm.get('dateOfBirth').hasError('required')">Требуется дата рождения</div>
   </div>
 
   <div class="form-group">
     <input [ngClass]="{'is-invalid': registerForm.get('city').errors && registerForm.get('city').touched}" class="form-control"
-      placeholder="City" formControlName="city">
-    <div class="invalid-feedback" *ngIf="registerForm.get('city').touched && registerForm.get('city').hasError('required')">City is required</div>
+      placeholder="Город" formControlName="city">
+    <div class="invalid-feedback" *ngIf="registerForm.get('city').touched && registerForm.get('city').hasError('required')">Требуется ввести город</div>
   </div>
 
   <div class="form-group">
     <input [ngClass]="{'is-invalid': registerForm.get('country').errors && registerForm.get('country').touched}" class="form-control"
-      placeholder="Country" formControlName="country">
-    <div class="invalid-feedback" *ngIf="registerForm.get('country').touched && registerForm.get('country').hasError('required')">Country is required</div>
+      placeholder="Страна" formControlName="country">
+    <div class="invalid-feedback" *ngIf="registerForm.get('country').touched && registerForm.get('country').hasError('required')">Требуется ввеести страну</div>
   </div>
 
   <div class="form-group">
@@ -61,7 +61,7 @@
       }"
       class="form-control"
       formControlName="password"
-      placeholder="Password"
+      placeholder="Пароль"
     />
     <div
       class="invalid-feedback"
@@ -70,7 +70,7 @@
         registerForm.get('password').touched
       "
     >
-      Password is required
+      Требуется ввести пароль
     </div>
     <div
       class="invalid-feedback"
@@ -79,7 +79,7 @@
         registerForm.get('password').touched
       "
     >
-      Password must be at least 4 characters
+      Пароль должен быть как минимум из 4 символов
     </div>
     <div
       class="invalid-feedback"
@@ -88,7 +88,7 @@
         registerForm.get('password').touched
       "
     >
-      Password cannot exceed 8 characters
+      Пароль не может превышать 8 символов
     </div>
   </div>
 
@@ -104,7 +104,7 @@
       }"
       class="form-control"
       formControlName="confirmPassword"
-      placeholder="Confirm Password"
+      placeholder="Подтвердите пароль"
     />
     <div
       class="invalid-feedback"
@@ -113,7 +113,7 @@
         registerForm.get('confirmPassword').touched
       "
     >
-      Password is required
+      Требуется ввести пароль
     </div>
     <div
       class="invalid-feedback"
@@ -122,18 +122,15 @@
         registerForm.get('confirmPassword').touched
       "
     >
-      Password must match
+      Пароль должен совпадать
     </div>
   </div>
 
   <div class="form-group text-center">
-    <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">Register</button>
+    <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">Зарегистрироваться</button>
     <button class="btn btn-default" type="button" (click)="cancel()">
-      Cancel
+      Отмена
     </button>
     <p class="mt-5 mb-3 text-muted text-center">© 2017-2018</p>
   </div>
 </form>
-
-<p>Form value: {{ registerForm.value | json }}</p>
-<p>Form value: {{ registerForm.status | json }}</p>

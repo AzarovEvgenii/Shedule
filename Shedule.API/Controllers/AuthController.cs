@@ -42,7 +42,7 @@ namespace Shedule.API.Controllers
 
             var userToReturn = _mapper.Map<UserForDetailedDto>(createdUser);
 
-            return CreatedAtRoute("GetUser", new {Controller = "Users", id = createdUser.Id}, userToReturn);
+            return CreatedAtRoute("GetUser", new {Controller = "Users", id = createdUser.Id}, userToReturn); // Why redirecting?
         }
 
         [HttpPost("login")]
@@ -77,6 +77,7 @@ namespace Shedule.API.Controllers
             var user = _mapper.Map<UserForListDto>(userFromRepo);
 
             return Ok(new
+            
             {
                 token = tokenHandler.WriteToken(token),
                 user

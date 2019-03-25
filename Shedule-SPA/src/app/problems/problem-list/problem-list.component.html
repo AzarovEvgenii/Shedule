@@ -1,0 +1,81 @@
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<agm-map
+  [scrollwheel]="null"
+  (mouseover)="unfocusOnProblem()"
+  [zoom]="zoomNum"
+  [latitude]="latitude"
+  [longitude]="longitude"
+>
+  <agm-marker
+    *ngFor="let problem of problems"
+    [latitude]="problem.latitude"
+    [longitude]="problem.longitude"
+    [label]="{color: 'white', text: problem.degree.toFixed(0) }"
+  >
+    <agm-snazzy-info-window
+      [isOpen]="problem.latitude == latitude && problem.longitude == longitude"
+      [maxWidth]="400"
+      [closeWhenOthersOpen]="true"
+    >
+      <ng-template>
+        <div id="content">
+          <div id="siteNotice"></div>
+          <h3
+            id="firstHeading"
+            class="firstHeading text-primary"
+            [routerLink]="['/problems/', problem.id]"
+          >
+            {{ problem.type }}
+          </h3>
+          <div id="bodyContent">
+            <p>
+              <b>Описание:</b><br />
+              {{ problem.description }}
+            </p>
+            <p>
+              <b>Местоположение</b>: {{ problem.city }}, {{ problem.country
+              }}<br />
+              <a><b>Произошло</b>: {{ problem.timeHappened }}</a
+              ><br />
+              (<b>добавлено</b> {{ problem.created }}).
+            </p>
+          </div>
+        </div>
+      </ng-template>
+    </agm-snazzy-info-window>
+  </agm-marker>
+</agm-map>
+  <div class="container mt-5">
+    <div *ngIf="!isMy" class="row">
+      <div *ngFor="let problem of problems" class="col-lg-2" col-md-3 col-sm-6>
+        <app-problem-card
+          (unfocusOnProblem)="unfocusOnProblem($event)"
+          (focusOnProblem)="focusOnProblem($event)"
+          [problem]="problem"
+        ></app-problem-card>
+      </div>
+    </div>
+    <div *ngIf="isMy" class="row">
+      <div *ngFor="let problem of problems" class="col-lg-2" col-md-3 col-sm-6>
+        <app-my-problem-card
+          (unfocusOnProblem)="unfocusOnProblem($event)"
+          (focusOnProblem)="focusOnProblem($event)"
+          [problem]="problem"
+        ></app-my-problem-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <pagination
+        [boundaryLinks]="true"
+        [totalItems]="pagination.totalItems"
+        [(ngModel)]="pagination.currentPage"
+        [itemsPerPage]="pagination.itemsPerPage"
+        (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+  
+    </pagination>
+  </div>
+

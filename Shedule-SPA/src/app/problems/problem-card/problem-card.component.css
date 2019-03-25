@@ -1,0 +1,84 @@
+.card:hover img {
+    transform: scale(1.2, 1.2);
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+    opacity: 0.7;
+}
+
+.card img {
+    transform: scale(1.0, 1.0);
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+}
+
+.card-img-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.member-icons {
+    position: absolute;
+    bottom: -30%;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    opacity: 0;
+}
+
+.card-img-wrapper:hover .member-icons {
+    bottom: 0;
+    opacity: 1;
+}
+
+.animate {
+    transition: all 0.3s ease-in-out;
+} 
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+.color10 {
+    background-color: #FF0000;
+}
+
+.color9 {
+    background-color: rgb(221, 64, 64);
+}
+
+.color8 {
+    background-color: rgb(211, 90, 90);
+}
+
+.color7 {
+    background-color: rgb(218, 108, 45);
+}
+
+.color6 {
+    background-color: rgb(221, 170, 31);
+}
+
+.color5 {
+    background-color: rgb(170, 221, 31);
+}
+
+.color4 {
+    background-color: rgb(49, 197, 30);
+}
+
+.color3 {
+    background-color: rgb(22, 182, 102);
+}
+
+.color2 {
+    background-color: rgb(22, 150, 182);
+}
+
+.color1 {
+    background-color: rgb(22, 110, 182);
+}

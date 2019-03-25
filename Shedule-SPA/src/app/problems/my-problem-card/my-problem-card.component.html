@@ -1,0 +1,17 @@
+<div class="card mb-4">
+  <div (mouseleave)="noFocus()" (mouseover)="onFocus()" class="card-img-wrapper">
+    <img src="{{problem.photoUrl || '../../../assets/user.png'}}" alt="{{problem.type}}" class="card-img-top" />
+    <ul class="list-inline member-icons animate text-center">
+      <li class="list-inline-item"><button class="btn btn-primary"
+         [routerLink]="['/problems/', problem.id]"><i class="fa fa-window-maximize"></i></button></li>
+      <li class="list-inline-item"><button class="btn btn-primary"
+        [routerLink]="['/problems/my/edit/', problem.id]"><i class="fa fa-edit"></i></button></li>
+    </ul>
+  </div>
+  <div class="card-body p-1">
+    <h6 class="card-title text-center mb1"><i class="fa fa-user"></i>
+      {{problem.type}}, {{problem.city}}
+    </h6>
+    <p class="card-text text-muted texr-center">{{problem.country}}</p>
+  </div>
+</div>

@@ -2,7 +2,7 @@ using System;
 
 namespace Shedule.API.Dtos
 {
-    public class ProblemPhotoForDetailed
+    public class ProblemPhotoForDetailedDto
     {
         public int Id { get; set; }
         public string Url { get; set; }

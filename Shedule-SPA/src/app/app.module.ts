@@ -2,12 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap';
+import {
+  BsDropdownModule,
+  TabsModule,
+  BsDatepickerModule,
+  PaginationModule
+} from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
-
+import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 import { AppComponent } from './app.component';
 import { HttpClient } from 'selenium-webdriver/http';
@@ -31,44 +38,92 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
-
+import { ProblemListResolver } from './_resolvers/problems-list.resolver';
+import { ProblemListComponent } from './problems/problem-list/problem-list.component';
+import { ProblemCardComponent } from './problems/problem-card/problem-card.component';
+import { ProblemDetailComponent } from './problems/problem-detail/problem-detail.component';
+import { ProblemDetailResolver } from './_resolvers/problem-detail.resolver';
+import { ProblemEditComponent } from './problems/problem-edit/problem-edit.component';
+import { MyProblemCardComponent } from './problems/my-problem-card/my-problem-card.component';
+import { ProblemEditResolver } from './_resolvers/problem-edit.resolver';
+import { PreventUnsavedChangesProblem } from './_guards/prevent-unsaved-changes-problem.guard';
+import { ProblemPhotoEditorComponent } from './members/problem-photo-editor/problem-photo-editor.component';
+import { RegisterProblemComponent } from './register-problem/register-problem.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatCheckboxModule,
+  MatDialogModule
+} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './footer/footer.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavComponent,
-    HomeComponent,
-    RegisterComponent,
-    ListsComponent,
-    MessagesComponent,
-    MemberListComponent,
-    MemberCardComponent,
-    MemberDetailComponent,
-    MemberEditComponent,
-    PhotoEditorComponent
-  ],
-  imports: [
+   declarations: [
+      AppComponent,
+      NavComponent,
+      HomeComponent,
+      RegisterComponent,
+      ListsComponent,
+      MessagesComponent,
+      MemberListComponent,
+      MemberCardComponent,
+      MemberDetailComponent,
+      MemberEditComponent,
+      PhotoEditorComponent,
+      ProblemListComponent,
+      ProblemCardComponent,
+      ProblemDetailComponent,
+      ProblemEditComponent,
+      MyProblemCardComponent,
+      ProblemPhotoEditorComponent,
+      RegisterProblemComponent,
+      FooterComponent,
+   ],
+   imports: [
+      BrowserModule,
+      HttpClientModule,
+      FormsModule,
+      ReactiveFormsModule,
+      BsDropdownModule.forRoot(),
+      BsDatepickerModule.forRoot(),
+      TabsModule.forRoot(),
+      RouterModule.forRoot(appRoutes),
+      PaginationModule.forRoot(),
+      NgxGalleryModule,
+      FileUploadModule,
+      JwtModule.forRoot({
+        config: {
+          tokenGetter: tokenGetter,
+          whitelistedDomains: ['localhost:5000'],
+          blacklistedRoutes: ['localhost:5000/api/auth']
+        }
+      }),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDkF-vWNRqJ2RoVD5VUcpA3fB1sxBbBPUk',
+      libraries: ['places']
+    }),
+    AgmSnazzyInfoWindowModule,
+    GooglePlaceModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
     BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BsDropdownModule.forRoot(),
-    BsDatepickerModule.forRoot(),
-    TabsModule.forRoot(),
-    RouterModule.forRoot(appRoutes),
-    NgxGalleryModule,
-    FileUploadModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost:5000'],
-        blacklistedRoutes: ['localhost:5000/api/auth']
-      }
-    })
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatDialogModule
   ],
   providers: [
     AuthService,
@@ -79,8 +134,13 @@ export function tokenGetter() {
     MemberDetailResolver,
     MemberListResolver,
     MemberEditResolver,
+    ProblemListResolver,
+    ProblemDetailResolver,
+    ProblemEditResolver,
     PreventUnsavedChanges,
+    PreventUnsavedChangesProblem
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [MessagesComponent, RegisterProblemComponent]
 })
 export class AppModule {}

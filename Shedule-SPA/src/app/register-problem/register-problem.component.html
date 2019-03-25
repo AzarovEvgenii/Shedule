@@ -1,0 +1,186 @@
+<div class="container dialog">
+  <div class="row justify-content-center">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <h2 class="text-center text-primary">Adding problem</h2>
+      <hr />
+
+      <!-- <div class="form-group">
+        <label class="control-label" style="margin-right:10px">Problem type: </label>
+        <label class="radio-inline">
+          <input class="mr-3" type="radio" value="Broken road" formControlName="type">Broken road
+        </label>
+        <label class="radio-inline ml-3">
+          <input class="mr-3" type="radio" value="Fire" formControlName="type">Fire
+        </label>
+        <div class="invalid-feedback">Please, choose type of problem</div>
+      </div> -->
+      <div class="form-group">
+      <select class="custom-select mb-2 mr-sm-2 mb-sm-0" formControlName="type">
+        <option value="Fire" selected>Fire</option>
+        <option value="Broken road">Broken road</option>
+      </select>
+</div>
+      <div class="form-group">
+        <input
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('description').errors &&
+              registerForm.get('description').touched
+          }"
+          type="number"
+          class="form-control"
+          placeholder="Degree"
+          formControlName="degree"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('description').touched &&
+            registerForm.get('description').hasError('required')
+          "
+        >
+          Problem degree's required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('description').errors &&
+              registerForm.get('description').touched
+          }"
+          class="form-control"
+          placeholder="Description"
+          formControlName="description"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('description').touched &&
+            registerForm.get('description').hasError('required')
+          "
+        >
+          Description's required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('timeHappened').errors &&
+              registerForm.get('timeHappened').touched
+          }"
+          class="form-control"
+          placeholder="Date of happened"
+          formControlName="timeHappened"
+          type="text"
+          bsDatepicker
+          [bsConfig]="bsConfig"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('timeHappened').touched &&
+            registerForm.get('timeHappened').hasError('required')
+          "
+        >
+          Date's required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('city').errors &&
+              registerForm.get('city').touched
+          }"
+          class="form-control"
+          placeholder="City"
+          formControlName="city"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('city').touched &&
+            registerForm.get('city').hasError('required')
+          "
+        >
+          City's required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('country').errors &&
+              registerForm.get('country').touched
+          }"
+          class="form-control"
+          placeholder="Страна"
+          formControlName="country"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('country').touched &&
+            registerForm.get('country').hasError('required')
+          "
+        >
+          Требуется ввеести страну
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          ngx-google-places-autocomplete
+          #placesRef="ngx-places"
+          (onAddressChange)="handleAddressChange($event)"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('address').errors &&
+              registerForm.get('address').touched
+          }"
+          class="form-control"
+          placeholder="Адрес"
+          formControlName="address"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('address').touched &&
+            registerForm.get('address').hasError('required')
+          "
+        >
+          Требуется ввеести адрес
+        </div>
+        
+      </div>
+<agm-map
+        [latitude]="lat"
+        [longitude]="lng"
+      >
+        <agm-marker
+          [latitude]="lat"
+          [longitude]="lng"
+        ></agm-marker>
+      </agm-map>
+      <div class="form-group text-center">
+        <button
+          class="btn btn-success mr-2 mt-2"
+          type="submit"
+          [disabled]="!registerForm.valid"
+        >
+          Add
+        </button>
+        <button class="btn btn-default mt-2" type="button" (click)="cancel()">
+          Cancel
+        </button>
+        <p class="mt-5 mb-3 text-muted text-center">© 2017-2018</p>
+      </div>
+    </form>
+  </div>
+</div>

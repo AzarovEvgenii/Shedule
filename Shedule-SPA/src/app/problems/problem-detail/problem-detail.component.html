@@ -1,0 +1,60 @@
+<div class="container mt-4 mb-5">
+  <div class="row">
+    <h1 class="ml-4">{{ problem.type }}'s problem</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 mb-2">
+      <div class="card">
+        <img
+          class="card-img-top img-thumbnail"
+          src="{{ problem.photoUrl || '../../../assets/user.png' }}"
+          alt="{{ problem.type }}"
+        />
+        <div class="card-body">
+          <div>
+            <strong>Location:</strong>
+            <p>{{ problem.city }}, {{ problem.country }}</p>
+          </div>
+          <div>
+            <strong>Проблема добавлена:</strong>
+            <p>{{ problem.created | date }}</p>
+          </div>
+          <div>
+            <strong>Доьавил пользователь:</strong>
+            <p class="text-primary" [routerLink]="['/members/', problem.userId]">{{ user?.knownAs }}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="btn-group d-flex">
+            <button class="btn btn-primary w-100">Like</button>
+            <button class="btn btn-success w-100">Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="About {{ problem.type }}">
+            <h4>Описание</h4>
+            <p>{{ problem?.description }}</p>
+            <h4>Тип проблемы</h4>
+            <p>{{ problem?.type }}</p>
+            <agm-map [scrollwheel]="null" [latitude]="problem.latitude" [longitude]="problem.longitude">
+              <agm-marker [latitude]="problem.latitude" [longitude]="problem.longitude"></agm-marker>
+            </agm-map>
+          </tab>
+          <tab heading="Photos">
+            <ngx-gallery
+              [options]="galleryOptions"
+              [images]="galleryImages"
+            ></ngx-gallery>
+          </tab>
+          <tab heading="Messages">
+            <p>Messages wll go here</p>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>

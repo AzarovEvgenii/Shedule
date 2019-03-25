@@ -1,41 +1,105 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand" href="home">Чистый город</a>
-      <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/members']" >Проблемы города</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/lists']">Lists</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/messages']">Messages</a>
-        </li>
-      </ul>
-  
-      <div *ngIf="loggedIn()" class="dropdown" dropdown>
-        <span class="mr-1">
-          <img src="{{photoUrl || '../../assets/user.png'}}" alt="">
-        </span>
-        <a class="dropdown-toggle text-light" dropdownToggle>
-          Добро пожаловать {{authService.decodedToken?.unique_name | titlecase}}
-        </a>
-      
-        <div class="dropdown-menu mt-3" *dropdownMenu>
-          <a class="dropdown-item" [routerLink]="['/member/edit']" >
-            <i class="fa fa-user"></i> Редактировать профиль</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>Выйти</a>
-        </div>
+  <a class="navbar-brand" href="home">
+    <img
+      src="https://res.cloudinary.com/dov9di2cg/image/upload/v1553161690/ClearCityLogo.png"
+      width="100"
+      height="95"
+      class="nobords"
+      alt="Clear city"
+    />
+    Clear city
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    (click)="toggleNavbar()"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div
+    class="collapse navbar-collapse"
+    id="navbarSupportedContent"
+    [ngClass]="{ show: navbarOpen }"
+  >
+    <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/problems']">City problems</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/lists']">Lists</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/messages']">Messages</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" (click)="onClick()"
+          ><i class="fa fa-calendar-plus-o"></i>&nbsp;Add problem</a
+        >
+      </li>
+    </ul>
+
+    <div *ngIf="loggedIn()" class="dropdown" dropdown>
+      <span class="mr-1">
+        <img src="{{ photoUrl || '../../assets/user.png' }}" alt="" />
+      </span>
+      <a class="dropdown-toggle text-light" dropdownToggle>
+        Welcome {{ authService.decodedToken?.unique_name | titlecase }}
+      </a>
+
+      <div class="dropdown-menu mt-3" *dropdownMenu>
+        <a class="dropdown-item" [routerLink]="['/member/edit']">
+          <i class="fa fa-user"></i> Edit profile</a
+        >
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" (click)="logout()"
+          ><i class="fa fa-sign-out"></i>Log Out</a
+        >
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" [routerLink]="['/problems/my']"
+          ><i class="fa fa-briefcase"></i>Edit my problems</a
+        >
       </div>
-  
-      <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
-        <input class="form-control mr-sm-2" type="text" name="username" 
-        placeholder="Имя пользователя" required [(ngModel)]="model.username">
-        <input class="form-control mr-sm-2" type="password" name="password" 
-         placeholder="Пароль" required [(ngModel)]="model.password">
-        <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Войти</button>
-      </form>
+    </div>
+
+    <form
+      *ngIf="!loggedIn()"
+      #loginForm="ngForm"
+      class="form-inline my-2 my-lg-0"
+      (ngSubmit)="login()"
+    >
+      <input
+        class="form-control mr-sm-2 mb-0"
+        type="text"
+        name="username"
+        placeholder="Username"
+        required
+        [(ngModel)]="model.username"
+      />
+      <input
+        class="form-control mr-sm-2"
+        type="password"
+        name="password"
+        placeholder="Password"
+        required
+        [(ngModel)]="model.password"
+      />
+      <button
+        [disabled]="!loginForm.valid"
+        class="btn btn-success my-2 my-sm-0"
+        type="submit"
+      >
+        Sign In
+      </button>
+      <button class="btn btn-info my-2 my-sm-0 ml-2">
+        Sign Up
+      </button>
+    </form>
   </div>
 </nav>
 <!-- <pre>

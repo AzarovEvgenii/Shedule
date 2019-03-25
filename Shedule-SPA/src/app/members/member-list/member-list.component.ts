@@ -3,6 +3,8 @@ import { UserService } from '../../_servises/user.service';
 import { AlertifyService } from '../../_servises/alertify.service';
 import { User } from '../../_models/user';
 import { ActivatedRoute } from '@angular/router';
+import { google } from '@agm/core/services/google-maps-types';
+import { latinMap } from 'ngx-bootstrap/typeahead/latin-map';
 
 @Component({
   selector: 'app-member-list',
@@ -20,14 +22,5 @@ export class MemberListComponent implements OnInit {
       this.users = data['users'];
     });
   }
-
-  // loadUsers() {
-  //   this.userService.getUsers().subscribe((users: User[]) => {
-  //     this.users = users;
-  //     console.log(this.users[0]);
-  //   }, error => {
-  //     this.alertify.error(error);
-  //   });
-  // }
 
 }

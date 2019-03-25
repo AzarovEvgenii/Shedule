@@ -26,14 +26,21 @@ namespace Shedule.API.Helpers
             CreateMap<Problem, ProblemForListDto>()
             .ForMember(dest => dest.PhotoUrl, opt => {
                 opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url);
-            });    
-            CreateMap<Photo, PhotosForDetailedDto>();
-            CreateMap<ProblemPhoto, ProblemPhotoForDetailed>();
+            });
+            CreateMap<Problem, ProblemForDetailedDto>()
+            .ForMember(dest => dest.PhotoUrl, opt => {
+                opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url);
+            });  
+            CreateMap<Photo, PhotoForDetailedDto>();
+            CreateMap<ProblemPhoto, ProblemPhotoForDetailedDto>();
             CreateMap<UserForUpdateDto, User>();
+            CreateMap<ProblemForUpdateDto, Problem>();
             CreateMap<Photo, PhotoForReturnDto>();
+            CreateMap<ProblemPhoto, ProblemPhotoForReturnDto>();
             CreateMap<PhotoForCreationDto, Photo>();
+            CreateMap<ProblemForCreationDto, Problem>();
+            CreateMap<ProblemPhotoForCreationDto, ProblemPhoto>();
             CreateMap<UserForRegisterDto, User>();
-            
         }
     }
 }

@@ -1,0 +1,133 @@
+<div class="container mt-4 mb-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>Ваша проблема</h1>
+    </div>
+    <div class="col-sm-8">
+      <div *ngIf="editForm.dirty" class="alert alert-info">
+        <strong>Information: </strong>You have made changes. Any unsaved changes
+        will be lost!
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img
+          class="card-img-top img-thumbnail"
+          src="{{ problem.photoUrl || '../../../assets/user.png' }}"
+          alt="{{ problem.type }}"
+        />
+        <div class="card-body">
+          <div>
+            <strong>Location:</strong>
+            <p>{{ problem.city }}, {{ problem.country }}</p>
+          </div>
+          <div>
+            <strong>Проблема добавлена:</strong>
+            <p>{{ problem.created | date }}</p>
+          </div>
+          <div>
+            <strong>Происшествие произошло:</strong>
+            <p>{{ problem.timeHappened | date }}</p>
+          </div>
+          <div>
+            <strong>Описание:</strong>
+            <p>{{ problem.description }}</p>
+          </div>
+          <div>
+            <strong>Тип:</strong>
+            <p>{{ problem.type }}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button
+            [disabled]="!editForm.dirty && !addressChanged"
+            form="editForm"
+            class="btn btn-success btn-block"
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="Edit Profile">
+            <form #editForm="ngForm" id="editForm" (ngSubmit)="updateProblem()">
+              <h4>Тип</h4>
+              <textarea
+                name="type"
+                rows="6"
+                class="form-control"
+                [(ngModel)]="problem.type"
+              ></textarea>
+              <h4>Описание</h4>
+              <textarea
+                name="description"
+                rows="6"
+                class="form-control"
+                [(ngModel)]="problem.description"
+              ></textarea>
+              <h4>Location details:</h4>
+              <div class="form-inline">
+                <label for="city">City:</label>
+                <input
+                  type="text"
+                  class="form-control ml-2 mr-5"
+                  name="city"
+                  [(ngModel)]="problem.city"
+                />
+                <label for="country">Country:</label>
+                <input
+                  type="text"
+                  class="form-control mr-5 ml-2"
+                  name="country"
+                  [(ngModel)]="problem.country"
+                />
+                <label for="timeHappened">Time Happened:</label>
+                <input
+                  bsDatepicker
+                  [bsConfig]="bsConfig"
+                  type="text"
+                  class="form-control ml-2 mr-5"
+                  name="timeHappened"
+                  [(ngModel)]="problem.timeHappened"
+                />
+                
+                <label class="mr-2">Edit geolocation:</label>
+                <input
+                  type="text"
+                  ngx-google-places-autocomplete
+                  #placesRef="ngx-places"
+                  (onAddressChange)="handleAddressChange($event)"
+                  class="form-control mb-2"
+                  name="address"
+                  [(ngModel)]="problem.address"
+                />
+              </div>
+
+              <agm-map
+                [latitude]="problem.latitude"
+                [longitude]="problem.longitude"
+              >
+                <agm-marker
+                  [latitude]="problem.latitude"
+                  [longitude]="problem.longitude"
+                ></agm-marker>
+              </agm-map>
+            </form>
+          </tab>
+          <tab heading="Edit Photos">
+            <app-problem-photo-editor
+              [photos]="problem.photos"
+              [problem]="problem"
+              (getMemberPhotoChange)="updateMainPhoto($event)"
+            ></app-problem-photo-editor>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>

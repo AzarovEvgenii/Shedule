@@ -45,13 +45,23 @@ namespace Shedule.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Address");
+
                     b.Property<string>("City");
 
                     b.Property<string>("Country");
 
                     b.Property<DateTime>("Created");
 
+                    b.Property<int>("Degree");
+
                     b.Property<string>("Description");
+
+                    b.Property<double>("Latitude");
+
+                    b.Property<double>("Longitude");
+
+                    b.Property<DateTime>("TimeHappened");
 
                     b.Property<string>("Type");
 

@@ -24,7 +24,15 @@ import { RegisterProblemComponent } from './register-problem/register-problem.co
 export const appRoutes: Routes = [
   { path: 'home',
     component: ProblemListComponent,
-    data: {path: 'home'},
+    data: {
+      path: 'home'
+    },
+    resolve: {problems: ProblemListResolver} },
+    { path: '',
+    component: ProblemListComponent,
+    data: {
+      path: 'home'
+    },
     resolve: {problems: ProblemListResolver} },
   {
     path: '',
@@ -93,5 +101,5 @@ export const appRoutes: Routes = [
       }
     ]
   },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' }
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

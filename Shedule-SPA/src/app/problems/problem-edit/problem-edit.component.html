@@ -1,7 +1,7 @@
 <div class="container mt-4 mb-5">
   <div class="row">
     <div class="col-sm-4">
-      <h1>Ваша проблема</h1>
+      <h1>One of your problems</h1>
     </div>
     <div class="col-sm-8">
       <div *ngIf="editForm.dirty" class="alert alert-info">
@@ -24,19 +24,19 @@
             <p>{{ problem.city }}, {{ problem.country }}</p>
           </div>
           <div>
-            <strong>Проблема добавлена:</strong>
+            <strong>Problem was added:</strong>
             <p>{{ problem.created | date }}</p>
           </div>
           <div>
-            <strong>Происшествие произошло:</strong>
+            <strong>Problem happened:</strong>
             <p>{{ problem.timeHappened | date }}</p>
           </div>
           <div>
-            <strong>Описание:</strong>
+            <strong>Description:</strong>
             <p>{{ problem.description }}</p>
           </div>
           <div>
-            <strong>Тип:</strong>
+            <strong>Type:</strong>
             <p>{{ problem.type }}</p>
           </div>
         </div>
@@ -56,14 +56,14 @@
         <tabset class="member-tabset">
           <tab heading="Edit Profile">
             <form #editForm="ngForm" id="editForm" (ngSubmit)="updateProblem()">
-              <h4>Тип</h4>
+              <h4>Type</h4>
               <textarea
                 name="type"
                 rows="6"
                 class="form-control"
                 [(ngModel)]="problem.type"
               ></textarea>
-              <h4>Описание</h4>
+              <h4>Description</h4>
               <textarea
                 name="description"
                 rows="6"

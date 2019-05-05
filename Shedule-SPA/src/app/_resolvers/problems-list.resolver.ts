@@ -16,7 +16,6 @@ export class ProblemListResolver implements Resolve<Problem[]> {
          private router: Router, private alertify: AlertifyService, private authService: AuthService ) {}
 
          resolve(route: ActivatedRouteSnapshot): Observable<Problem[]> {
-            if (this.authService.currentUser != null) {
                 return this.problemService.getProblems(this.pageNumber, this.pageSize, route.data['isMy']).pipe(
                     catchError(error => {
                         this.alertify.error('Problem retrieving data');
@@ -24,15 +23,7 @@ export class ProblemListResolver implements Resolve<Problem[]> {
                         return of(null);
                     })
                  );
-            } else {
-            return this.problemService.getProblemsUnauth(this.pageNumber, this.pageSize).pipe(
-                catchError(error => {
-                    this.alertify.error('Problem retrieving data');
-                    this.router.navigate(['/home']);
-                    return of(null);
-                })
-            );
-            }
+
          }
 
 }

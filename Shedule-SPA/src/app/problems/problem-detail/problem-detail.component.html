@@ -16,11 +16,11 @@
             <p>{{ problem.city }}, {{ problem.country }}</p>
           </div>
           <div>
-            <strong>Проблема добавлена:</strong>
+            <strong>Problem was added:</strong>
             <p>{{ problem.created | date }}</p>
           </div>
           <div>
-            <strong>Доьавил пользователь:</strong>
+            <strong>User:</strong>
             <p class="text-primary" [routerLink]="['/members/', problem.userId]">{{ user?.knownAs }}</p>
           </div>
         </div>
@@ -36,9 +36,9 @@
       <div class="tab-panel">
         <tabset class="member-tabset">
           <tab heading="About {{ problem.type }}">
-            <h4>Описание</h4>
+            <h4>Description</h4>
             <p>{{ problem?.description }}</p>
-            <h4>Тип проблемы</h4>
+            <h4>Problem type</h4>
             <p>{{ problem?.type }}</p>
             <agm-map [scrollwheel]="null" [latitude]="problem.latitude" [longitude]="problem.longitude">
               <agm-marker [latitude]="problem.latitude" [longitude]="problem.longitude"></agm-marker>

@@ -60,7 +60,6 @@ export class ProblemListComponent implements OnInit {
   }
 
   loadProblems() {
-    if (this.authService.currentUser != null) {
       this.problemService
         .getProblems(this.pagination.currentPage, this.pagination.itemsPerPage, this.isMy)
         .subscribe(
@@ -72,21 +71,5 @@ export class ProblemListComponent implements OnInit {
             this.alertify.error(error);
           }
         );
-    } else {
-      this.problemService
-        .getProblemsUnauth(
-          this.pagination.currentPage,
-          this.pagination.itemsPerPage
-        )
-        .subscribe(
-          (res: PaginatedResult<Problem[]>) => {
-            this.problems = res.result;
-            this.pagination = res.pagination;
-          },
-          error => {
-            this.alertify.error(error);
-          }
-        );
-    }
   }
 }

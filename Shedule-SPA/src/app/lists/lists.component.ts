@@ -15,6 +15,8 @@ import { AlertifyService } from '../_servises/alertify.service';
 export class ListsComponent implements OnInit {
   problems: Problem[];
   isMy: boolean;
+  typeList = [{value: 'Fire', display: 'Fire'}, {value: 'Broken road', display: 'Broken road'}];
+  problemParams: any = {};
   pagination: Pagination;
 
   constructor(
@@ -33,6 +35,11 @@ export class ListsComponent implements OnInit {
       const user: User = JSON.parse(localStorage.getItem( 'user'));
       this.problems = this.problems.filter(p => p.userId === user.id);
     }
+
+    this.problemParams.type = 'none';
+    this.problemParams.minDegree = 1;
+    this.problemParams.maxDegree = 10;
+    this.problemParams.orderBy = 'timeHappened';
   }
 
   pageChanged(event: any): void {
@@ -40,8 +47,16 @@ export class ListsComponent implements OnInit {
     this.loadProblems();
   }
 
+  resetFilters() {
+    this.problemParams.type = 'none';
+    this.problemParams.minDegree = 1;
+    this.problemParams.maxDegree = 10;
+    this.loadProblems();
+  }
+
   loadProblems() {
-    this.problemService.getProblems(this.pagination.currentPage, this.pagination.itemsPerPage)
+    this.problemService
+    .getProblems(this.pagination.currentPage, this.pagination.itemsPerPage, false, this.problemParams)
       .subscribe((res: PaginatedResult<Problem[]>) => {
         this.problems = res.result;
         this.pagination = res.pagination;

@@ -14,6 +14,8 @@ namespace Shedule.API.Helpers
         public int UserId { get; set; }
         public int ProblemId { get; set; }
         public string Type { get; set; }
-        // public string OrderBy { get; set; }
+        public int MinDegree { get; set; } = 1;
+        public int MaxDegree { get; set; } = 10;
+        public string OrderBy { get; set; }
     }
 }

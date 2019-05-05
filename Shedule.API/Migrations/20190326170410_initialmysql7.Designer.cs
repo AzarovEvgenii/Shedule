@@ -9,14 +9,15 @@ using Shedule.API.Data;
 namespace Shedule.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190324171157_ProblemWithDegree")]
-    partial class ProblemWithDegree
+    [Migration("20190326170410_initialmysql7")]
+    partial class initialmysql7
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.3-rtm-32065");
+                .HasAnnotation("ProductVersion", "2.1.3-rtm-32065")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Shedule.API.Models.Photo", b =>
                 {

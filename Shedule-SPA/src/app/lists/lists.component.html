@@ -1,4 +1,46 @@
+<div class="text-center mt-3">
+  <h2>{{pagination.totalItems}} problems were found</h2>
+</div>
+
   <div class="container mt-5">
+
+      <form class="form-inline" #form="ngForm" (ngSubmit)="loadProblems()" novalidate>
+          <div class="form-group">
+            <label for="minDegree">Degree From</label>
+            <input type="number" class="form-control ml-1" style="width: 70px" 
+            [(ngModel)]="problemParams.minDegree" id="minDegree" name="minDegree">
+          </div>
+        
+          <div class="form-group px-2">
+            <label for="maxDegree">Degree To</label>
+            <input type="number" class="form-control ml-1" style="width: 70px" 
+            [(ngModel)]="problemParams.maxDegree" id="maxDegree" name="maxDegree">
+          </div>
+        
+          <div class="form-group px-2">
+            <label for="type">Show: </label>
+            <select class="form-control ml-1" style="width: 130px" id="type" 
+            [(ngModel)]="problemParams.type" name="type">
+              <option *ngFor="let type of typeList" [value]="type.value">
+                {{type.display}}
+              </option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary ml-3" style="margin-left:10px">Apply Filters</button>
+          <button type="button" class="btn btn-info" (click)="resetFilters()" style="margin-left:10px">Reset Filter</button>
+
+          <div class="col">
+              <div class="btn-group float-left mt-2">
+                <button type="button" name="orderBy"
+                 [(ngModel)]="problemParams.orderBy" (click)="loadProblems()" class="btn btn-primary" btnRadio="timeHappened">Time Happened</button>
+                <button type="button" name="orderBy" class="btn btn-primary"
+                 [(ngModel)]="problemParams.orderBy" (click)="loadProblems()" btnRadio="created">Newest Problems</button>
+              </div>
+            </div>
+        
+        </form>
+        <br>
+    
     <div *ngIf="!isMy" class="row">
       <div *ngFor="let problem of problems" class="col-lg-2" col-md-3 col-sm-6>
         <app-problem-card
@@ -14,7 +56,7 @@
       </div>
     </div>
   </div>
-
+  
   <div class="d-flex justify-content-center">
     <pagination
         [boundaryLinks]="true"

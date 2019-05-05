@@ -69,10 +69,34 @@ namespace Shedule.API.Data
 
         public async Task<PagedList<Problem>> GetProblems(ProblemParams problemParams)
         {
-            var problems = _context.Problems.Include(p => p.Photos).AsQueryable();
+            var problems = _context.Problems.Include(p => p.Photos)
+            .OrderByDescending(p => p.TimeHappened).AsQueryable();
 
             if (problemParams.UserId != 0)
                 problems = problems.Where(p => p.UserId == problemParams.UserId);
+
+            if (!string.IsNullOrEmpty(problemParams.Type) && problemParams.Type != "none")
+            {
+                problems = problems.Where(p => p.Type == problemParams.Type);
+            }
+
+            if (problemParams.MinDegree != 1 || problemParams.MaxDegree != 10)
+            {
+                problems = problems.Where(p => p.Degree >= problemParams.MinDegree && p.Degree <= problemParams.MaxDegree);
+            }
+
+            if (!string.IsNullOrEmpty(problemParams.OrderBy))
+            {
+                switch (problemParams.OrderBy)
+                {
+                    case "created":
+                        problems = problems.OrderByDescending(p => p.Created);
+                        break;
+                    default:
+                        problems = problems.OrderByDescending(p => p.TimeHappened);
+                        break;
+                }
+            }
 
             return await PagedList<Problem>.CreateAsync(problems, problemParams.PageNumber, problemParams.PageSize);
         }

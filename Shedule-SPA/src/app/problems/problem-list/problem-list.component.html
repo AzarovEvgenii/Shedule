@@ -11,7 +11,8 @@
     *ngFor="let problem of problems"
     [latitude]="problem.latitude"
     [longitude]="problem.longitude"
-    [label]="{color: 'white', text: problem.degree.toFixed(0) }"
+    [agmFitBounds]="true" 
+    [label]="{color: 'white',fontWeight: 'bold',opacity:1.0, text: problem.degree.toFixed(0) }"
   >
     <agm-snazzy-info-window
       [isOpen]="problem.latitude == latitude && problem.longitude == longitude"

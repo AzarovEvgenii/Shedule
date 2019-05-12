@@ -120,7 +120,7 @@ namespace Shedule.API
             }
 
             //  app.UseHttpsRedirection();
-            // seeder.SeedUsers();
+            seeder.SeedUsers();
             // seeder.SeedProblems();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();

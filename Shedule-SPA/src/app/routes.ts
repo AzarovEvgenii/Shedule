@@ -20,6 +20,7 @@ import { ProblemEditResolver } from './_resolvers/problem-edit.resolver';
 import { ProblemEditComponent } from './problems/problem-edit/problem-edit.component';
 import { PreventUnsavedChangesProblem } from './_guards/prevent-unsaved-changes-problem.guard';
 import { RegisterProblemComponent } from './register-problem/register-problem.component';
+import { RegisterComponent } from './register/register.component';
 
 export const appRoutes: Routes = [
   { path: 'home',
@@ -28,6 +29,10 @@ export const appRoutes: Routes = [
       path: 'home'
     },
     resolve: {problems: ProblemListResolver} },
+    {
+        path: 'home/register',
+        component: RegisterComponent
+      },
     { path: '',
     component: ProblemListComponent,
     data: {

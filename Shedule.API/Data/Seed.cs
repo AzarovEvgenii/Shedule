@@ -16,7 +16,8 @@ namespace Shedule.API.Data
 
         public void SeedUsers()
         {
-            
+            if (!_context.Users.Any())
+            {
                 var userData = System.IO.File.ReadAllText("Data/UserSeedData.json");
                 var users = JsonConvert.DeserializeObject<List<User>>(userData);
                 foreach (var user in users)
@@ -32,7 +33,7 @@ namespace Shedule.API.Data
                 }
 
                 _context.SaveChanges();
-            
+            }
         }
 
         public void SeedProblems()

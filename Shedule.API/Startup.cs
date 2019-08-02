@@ -31,6 +31,17 @@ namespace Shedule.API
             Configuration = configuration;
         }
 
+        private void UpdateDatabase(IApplicationBuilder builder)
+        {
+            using (var scope = builder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                using (var ctx = scope.ServiceProvider.GetService<DataContext>())
+                {
+                    ctx.Database.Migrate();
+                }
+            }
+        }
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -65,7 +76,7 @@ namespace Shedule.API
             });
         }
 
-         public void ConfigureDevelopmentServices(IServiceCollection services)
+        public void ConfigureDevelopmentServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
@@ -120,13 +131,16 @@ namespace Shedule.API
             }
 
             //  app.UseHttpsRedirection();
+            
             seeder.SeedUsers();
             // seeder.SeedProblems();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
+            UpdateDatabase(app);
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseMvc(rootes => {
+            app.UseMvc(rootes =>
+            {
                 rootes.MapSpaFallbackRoute(
                     name: "spa-fallback",
                     defaults: new { controller = "FallBack", action = "Index" }

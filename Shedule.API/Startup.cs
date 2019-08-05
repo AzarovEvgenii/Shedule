@@ -19,6 +19,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using NLog.Extensions.Logging;
 using Shedule.API.Data;
 using Shedule.API.Helpers;
 
@@ -26,9 +27,19 @@ namespace Shedule.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IConfiguration Configuration { get; }
+        public IHostingEnvironment Environment { get; }
+
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
+            Environment = env;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
+            Configuration = builder.Build();
         }
 
         private void UpdateDatabase(IApplicationBuilder builder)
@@ -41,8 +52,6 @@ namespace Shedule.API
                 }
             }
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -74,6 +83,8 @@ namespace Shedule.API
                     ValidateAudience = false
                 };
             });
+            services.AddSingleton<ILoggerFactory, LoggerFactory>();
+            services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
         }
 
         public void ConfigureDevelopmentServices(IServiceCollection services)
@@ -106,7 +117,7 @@ namespace Shedule.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Seed seeder)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory factory, Seed seeder)
         {
             if (env.IsDevelopment())
             {
@@ -129,11 +140,13 @@ namespace Shedule.API
                 });
                 //app.UseHsts();
             }
-
+            factory.AddNLog(new NLogProviderOptions { CaptureMessageTemplates = true, CaptureMessageProperties = true });
+            NLog.LogManager.LoadConfiguration("NLog.config");
             //  app.UseHttpsRedirection();
-            
+
             seeder.SeedUsers();
             // seeder.SeedProblems();
+
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             UpdateDatabase(app);

@@ -22,16 +22,17 @@ namespace Shedule.API.Data
                 var users = JsonConvert.DeserializeObject<List<User>>(userData);
                 foreach (var user in users)
                 {
-                    byte[] passwordHash, passwordSalt;
-                    CreatePasswordHash("password", out passwordHash, out passwordSalt);
+                    if (_context.Users.Any(x => x.Username == user.Username.ToLowerInvariant()))
+                        continue;
+                    CreatePasswordHash("password", out byte[] passwordHash, out byte[] passwordSalt);
 
                     user.PasswordHash = passwordHash;
                     user.PasswordSalt = passwordSalt;
-                    user.Username = user.Username.ToLower();
+                    user.Username = user.Username.ToLowerInvariant();
 
                     _context.Users.Add(user);
-                }
 
+                }
                 _context.SaveChanges();
             }
         }

@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using AutoMapper;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace Shedule.API.Controllers
 {
@@ -20,29 +22,39 @@ namespace Shedule.API.Controllers
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
         private readonly IMapper _mapper;
+        private readonly ILogger<AuthController> _logger;
 
-        public AuthController(IAuthRepository repo, IConfiguration config, IMapper mapper)
+        public AuthController(IAuthRepository repo, IConfiguration config, IMapper mapper, ILogger<AuthController> logger)
         {
             _repo = repo;
             _config = config;
             _mapper = mapper;
+            _logger = logger;
         }
+
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
+            try
+            {
+                userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
-            userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
+                if (await _repo.UserExists(userForRegisterDto.Username))
+                    return BadRequest("Username already exists");
 
-            if (await _repo.UserExists(userForRegisterDto.Username))
-                return BadRequest("Username already exists");
+                var userToCreate = _mapper.Map<User>(userForRegisterDto);
 
-            var userToCreate = _mapper.Map<User>(userForRegisterDto);
+                User createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
 
-            var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
+                UserForDetailedDto userToReturn = _mapper.Map<UserForDetailedDto>(createdUser);
 
-            var userToReturn = _mapper.Map<UserForDetailedDto>(createdUser);
-
-            return CreatedAtRoute("GetUser", new {Controller = "Users", id = createdUser.Id}, userToReturn); // Why redirecting?
+                return CreatedAtRoute("GetUser", new { Controller = "Users", id = createdUser.Id }, userToReturn); // Why redirecting?
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+                return BadRequest($"Something goes wrong.");
+            }
         }
 
         [HttpPost("login")]
@@ -77,7 +89,7 @@ namespace Shedule.API.Controllers
             var user = _mapper.Map<UserForListDto>(userFromRepo);
 
             return Ok(new
-            
+
             {
                 token = tokenHandler.WriteToken(token),
                 user
